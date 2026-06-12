@@ -15,9 +15,16 @@ pipeline {
         stage ('Code package') {
             steps {
                     echo "Code packaging starts"
-                    sh 'mvn clean package'
+                    sh 'mvn package'
                     echo "Code packaging completed"
             }
+        }
+        stage ('Code execute') {
+                    steps {
+                            echo "Code execution starts"
+                            sh 'mvn spring-boot:run'
+                            echo "Code execution started"
+                    }
         }
     }
 
