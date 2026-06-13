@@ -1,6 +1,6 @@
 pipeline {
 
-    agent any
+    agent Jenkins_Slave
     tools {
         maven 'Apache Maven 3.9.16'
     }
@@ -18,13 +18,6 @@ pipeline {
                     sh 'mvn package'
                     echo "Code packaging completed"
             }
-        }
-        stage ('Code execute') {
-                    steps {
-                            echo "Code execution starts"
-                            sh 'mvn spring-boot:run'
-                            echo "Code execution started"
-                    }
         }
     }
 
